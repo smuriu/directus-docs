@@ -587,12 +587,21 @@ Based on your configured driver, you must also provide the following configurati
 | `STORAGE_<LOCATION>_KEY_FILENAME` | Path to key file on disk    | --            |
 | `STORAGE_<LOCATION>_BUCKET`       | Google Cloud Storage bucket | --            |
 
+### Supabase Storage (`supabase`)
+
+| Variable                      | Description               | Default Value      |
+| ----------------------------- | ------------------------- | ------------------ |
+| `STORAGE_<LOCATION>_ENDPOINT` | Supabase Storage Endpoint | --                 |
+| `STORAGE_<LOCATION>_SECRET`   | Supabase service key      | --                 |
+| `STORAGE_<LOCATION>_BUCKET`   | Supabase Storage Bucket   | --                 |
+| `STORAGE_<LOCATION>_ROOT`     | Folder in storage bucket  | `''`               |
+
 ### Example: Multiple Storage Adapters
 
 Below showcases a CSV of storage location names, with a config block for each:
 
 ```
-STORAGE_LOCATIONS="local,aws"
+STORAGE_LOCATIONS="local,aws,supabase"
 
 STORAGE_LOCAL_DRIVER="local"
 STORAGE_LOCAL_ROOT="local"
@@ -601,6 +610,11 @@ STORAGE_AWS_KEY="tp15c...510vk"
 STORAGE_AWS_SECRET="yk29b...b932n"
 STORAGE_AWS_REGION="us-east-2"
 STORAGE_AWS_BUCKET="my-files"
+
+STORAGE_SUPABASE_DRIVER="supabase"
+STORAGE_SUPABASE_ENDPOINT="https://some-project-ref.supabase.co/storage/v1"
+STORAGE_SUPABASE_SECRET="eyJhb...NLAcU"
+STORAGE_SUPABASE_BUCKET="studio"
 ```
 
 ### Metadata
